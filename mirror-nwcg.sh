@@ -31,6 +31,8 @@ giss() {
     htmlgroom 's/ view-dom-id-[^"]+//g'
     # and some // references inside js that wget can't convert
     htmlgroom "s|'(//siteimproveanalytics\.com)/|'https:\1/|g"
+    # these html tags appear to change periodically too
+    htmlgroom 's/\.(css|js)\?[^"]+"/.\1"/g'
 }
 
 htmlgroom() {
