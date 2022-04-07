@@ -7,6 +7,7 @@ set -ex
 W=www.nwcg.gov
 
 MYDIRS=(/committees/geospatial-subcommittee
+        /publications/position-taskbooks/311-77
         /publications/pms936
         /publications/pms936-1
         /sites/default/files/publications)
@@ -14,6 +15,7 @@ mydirs=$(IFS=,;echo "${MYDIRS[*]}")
 
 main() {
     giss
+    git diff --word-diff=porcelain
 }
 
 giss() {
@@ -23,6 +25,7 @@ giss() {
       --adjust-extension --page-requisite --convert-links \
       --include-directories="$mydirs" \
       https://$W/committees/geospatial-subcommittee \
+      https://$W/publications/position-taskbooks/311-77 \
       https://$W/publications/pms936{,-1} ||:
 
     # remove non-essential dynamic elements
