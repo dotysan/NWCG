@@ -12,7 +12,8 @@ MYDIRS=(/committees/geospatial-subcommittee
         /publications/pms936-1
         /publications/ics-forms
         /sites/default/files/products
-        /sites/default/files/publications)
+        /sites/default/files/publications
+        /EMIWeb/IS/ICSResource/assets) # last one is on fema.gov
 mydirs=$(IFS=,;echo "${MYDIRS[*]}")
 
 main() {
@@ -24,6 +25,7 @@ giss() {
 
     # mirror the GISS-related content
     wget --no-verbose --execute robots=off --mirror \
+      --span-hosts --domains='www.nwcg.gov,training.fema.gov' \
       --adjust-extension --page-requisite --convert-links \
       --include-directories="$mydirs" \
       https://$W/committees/geospatial-subcommittee \
