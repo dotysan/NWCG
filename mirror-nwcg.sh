@@ -18,6 +18,7 @@ mydirs=$(IFS=,;echo "${MYDIRS[*]}")
 
 main() {
     giss
+    fema
     git diff --word-diff=porcelain
 }
 
@@ -40,6 +41,13 @@ giss() {
     htmlgroom "s|'(//siteimproveanalytics\.com)/|'https:\1/|g"
     # these html tags appear to change periodically too
     htmlgroom 's/\.(css|js)\?[^"]+"/.\1"/g'
+}
+
+fema() {
+    wget --no-verbose --execute robots=off --mirror \
+      --adjust-extension --page-requisite --convert-links \
+      --include-directories=/EMIWeb/IS/ICSResource/assets \
+      https://training.fema.gov/emiweb/is/icsresource/icsforms/
 }
 
 htmlgroom() {
