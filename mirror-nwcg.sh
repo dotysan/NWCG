@@ -10,6 +10,8 @@ MYDIRS=(/committees/geospatial-subcommittee
         /publications/position-taskbooks/311-77
         /publications/pms936
         /publications/pms936-1
+        /publications/ics-forms
+        /sites/default/files/products
         /sites/default/files/publications)
 mydirs=$(IFS=,;echo "${MYDIRS[*]}")
 
@@ -26,7 +28,7 @@ giss() {
       --include-directories="$mydirs" \
       https://$W/committees/geospatial-subcommittee \
       https://$W/publications/position-taskbooks/311-77 \
-      https://$W/publications/pms936{,-1} ||:
+      https://$W/publications/{pms936{,-1},ics-forms} ||:
 
     # remove non-essential dynamic elements
     htmlgroom 's/"theme_token":"[^"]+",//g'
