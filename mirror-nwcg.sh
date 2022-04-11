@@ -11,8 +11,10 @@ MYDIRS=(/committees/geospatial-subcommittee
         /publications/pms936
         /publications/pms936-1
         /publications/ics-forms
+        /sites/default/files/stds
         /sites/default/files/products
         /sites/default/files/publications
+        /data-standards/approved
         /EMIWeb/IS/ICSResource/assets) # last one is on fema.gov
 mydirs=$(IFS=,;echo "${MYDIRS[*]}")
 
@@ -30,6 +32,7 @@ giss() {
       --adjust-extension --page-requisite --convert-links \
       --include-directories="$mydirs" \
       https://$W/committees/geospatial-subcommittee \
+      https://$W/data-standards-approved/geospatial-data-layer \
       https://$W/publications/position-taskbooks/311-77 \
       https://$W/publications/{pms936{,-1},ics-forms} ||:
 
