@@ -12,6 +12,7 @@ MYDIRS=(/committees/geospatial-subcommittee
         /publications/pms936-1
         /publications/ics-forms
         /sites/default/files/stds
+        /sites/default/files/data-standards
         /sites/default/files/products
         /sites/default/files/publications
         /data-standards/approved
