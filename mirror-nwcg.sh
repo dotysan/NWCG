@@ -45,6 +45,8 @@ giss() {
     htmlgroom "s|'(//siteimproveanalytics\.com)/|'https:\1/|g"
     # these html tags appear to change periodically too
     htmlgroom 's/\.(css|js)\?[^"]+"/.\1"/g'
+    # can we get away without view_dom_id entirely?
+    htmlgroom 's/"view_dom_id":"[^"]+",//g'
 }
 
 fema() {
