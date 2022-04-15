@@ -47,6 +47,8 @@ giss() {
     htmlgroom 's/\.(css|js)\?[^"]+"/.\1"/g'
     # can we get away without view_dom_id entirely?
     htmlgroom 's/"view_dom_id":"[^"]+",//g'
+    # where'd this one come from?
+    htmlgroom 's/"views_dom_id:[^"]+"/"views_dom_id:42"/g'
 }
 
 fema() {
